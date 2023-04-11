@@ -4,10 +4,10 @@ import { AnyObject, Maybe, ObjectSchema, ValidationError } from 'yup';
 
 type TProperty = 'body' | 'header' | 'params' | 'query';
 type TGetSchema = <T extends Maybe<AnyObject>>(schema: ObjectSchema<T>) => ObjectSchema<T>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TAllSchemas = Record<TProperty,ObjectSchema<any>>;
 type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
 type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
-
 
 export const validation: TValidation = (getAllschemas) => async (req, res, next) => {
   const schemas = getAllschemas((schema) => schema);
