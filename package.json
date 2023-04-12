@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
     "startx": "ts-node-dev --transpileOnly --ignore-watch node_modules index.ts",
+    "production": "node ./build/index.js",
+    "postinstall": "tsc",
     "test": "jest"
   },
   "author": "Janes Roberto",
@@ -28,5 +30,8 @@
     "supertest": "^6.3.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
