@@ -8,6 +8,10 @@
     "startx": "ts-node-dev --transpileOnly --ignore-watch node_modules index.ts",
     "production": "node ./build/index.js",
     "postinstall": "tsc",
+    "knex:migrate": "npx knex --knexfile ./src/server/database/knex/Environment.ts migrate:latest",
+    "knex:rollback": "npx knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback",
+    "knex:rollback-all": "npx knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback --all",
+    "knex:seed": "npx knex --knexfile ./src/server/database/knex/Environment.ts seed:run",
     "test": "jest"
   },
   "author": "Janes Roberto",
