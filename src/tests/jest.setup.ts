@@ -4,6 +4,7 @@ import { server } from '../server/Server';
 
 beforeAll(async () => {
   await Knex.migrate.latest();
+  await Knex.seed.run();
 });
 
 afterAll(async () => {
